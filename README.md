@@ -1,4 +1,4 @@
-﻿<h1 align="center">
+<h1 align="center">
   <br>
   <a href="https://github.com/kra0s22"><img src="https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/yologo_2.png" alt="Markdownify" width="200"></a>
   <br>
@@ -63,12 +63,6 @@ This software uses the following open source packages:
 
 ## You may also like...
 
-- [Pomolectron](https://github.com/amitmerchant1990/pomolectron) - A pomodoro app
-- [Correo](https://github.com/amitmerchant1990/correo) - A menubar/taskbar Gmail App for Windows and macOS
-
-## License
-
-MIT
 
 ---
 
