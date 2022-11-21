@@ -69,14 +69,14 @@ Starting withe the following 4 possible predictions:
 Precision measeures how accurate is your prediciton and uses the following definition:
 
 $$Precision = \frac{TP}{TP + FP}$$
-![P curve](https://drive.google.com/uc?export=view&id=1pUxsnoWEo6xxQkjoancih6c9Y7e4-IGV)
+![P curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/P_curve.png)
 
 ### Recall
 Recall measures how good you find all the positives and uses the following definition:
 
 $$Recall = \frac{TP}{TP + FN}$$
 
-![R curve](https://drive.google.com/uc?export=view&id=10FMCVMBP3UrnNIsMAAAnvPnKuKjVjCHW)
+![R curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/R_curve.png)
 
 
 ### IoU (Intersection over union)
@@ -88,25 +88,24 @@ AP (Average precision) is a popular metric in measuring the accuracy of object d
 
 $$AP = $$\int_0^1 p(r) \,dx= \frac13$$$$
 
-![PR curve](https://drive.google.com/uc?export=view&id=1JliHoR-0pb25T12X79mk9gH9iPlp-kzZ)
+![PR curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/PR_curve.png)
 
 ### COCO mAP
 
 Latest research papers tend to give results for the COCO dataset only. In COCO mAP, a 101-point interpolated AP definition is used in the calculation. For COCO, AP is the average over multiple IoU (the minimum IoU to consider a positive match). AP@[.5:.95] corresponds to the average AP for IoU from 0.5 to 0.95 with a step size of 0.05. For the COCO competition, AP is the average over 10 IoU levels on 80 categories (AP@[.50:.05:.95]: start from 0.5 to 0.95 with a step size of 0.05). The following are some other metrics collected for the COCO dataset.
 
 mAP (mean average precision) is the average of AP. In some context, we compute the AP for each class and average them. But in some context, they mean the same thing. For example, under the COCO context, there is no difference between AP and mAP.
-
-![Graphs](https://drive.google.com/uc?export=view&id=1pFQ3aWPaMWn3BjWZXA_g_Ph8j4f-mv-x)
+![PR curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/results.png)
 
 So the orange line is transformed into the green lines and the curve will decrease monotonically instead of the zigzag pattern. The calculated AP value will be less suspectable to small variations in the ranking. Mathematically, we replace the precision value for recall ȓ with the maximum precision for any recall ≥ ȓ.
 
 
 ### F1
-Simply put, it combines precision and recall into one metric by calculating the harmonic mean between those two. It is actually a special case of the more general function F beta:
+F1 combines precision and recall into one metric by calculating the harmonic mean between those two. It is actually a special case of the more general function F beta:
 
 $$F1 = \frac{precision \cdot{recall}}{precision + recall} \cdot {Beta}$$
 
-![F1 curve](https://drive.google.com/uc?export=view&id=1A2ivvryH0N4AOWlLjK76RGbCQbA02Kif)
+![F1 curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/F1_curve.png)
 
 The above training and validation execution ends with the plots exposed in the following [link](https://wandb.ai/kra0s22/YOLOR/workspace?workspace=user-kra0s22).
 
