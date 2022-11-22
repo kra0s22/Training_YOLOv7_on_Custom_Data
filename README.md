@@ -110,10 +110,10 @@ $$F1 = \frac{precision \cdot{recall}}{precision + recall} \cdot {Beta}$$
 The above training and validation execution ends with the plots exposed in the following [link](https://wandb.ai/kra0s22/YOLOR/workspace?workspace=user-kra0s22).
 
 ## Evaluation
+As it is said in the following [discussions](https://github.com/ultralytics/yolov5/discussions/7906), yolo5 had 3 files that are designed for different purposes and utilize different dataloaders with different settings. Currently, in yolo7 the functionalities are dispossed differently, **train.py** dataloaders are designed for a speed-accuracy compromise, **test.py** contains the possibility of use the **train**, **val**, **test**, **speed** or **study** functionality (default object confidence threshold 0.001 and IOU threshold for NMS 0.65) and **detect.py** is designed for best real-world inference results (default object confidence threshold 0.25 and IOU threshold for NMS 0.45).
 
-We can evaluate the performance of our custom training using the provided evalution script (**train.py**) and the best results model in **best.pt**.
+For a real-world situation, we can evaluate the performance of our custom training using the provided **evalution** script and the best results model in **/runs/train/exp/weights/best.pt**. Similarly to the train.py function, detect.py has a lot of arguments accesible from --help or using the following [webpage](https://github.com/WongKinYiu/yolov7/blob/main/detect.py#L154).
 
-Aqui van imagenes obtenidas en el entrenamiento que parezcan ser buenas
 
 ## Credits
 
