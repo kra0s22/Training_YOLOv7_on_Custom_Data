@@ -138,9 +138,9 @@ For a real-world situation, we can evaluate the performance of our custom traini
 
 Our first execution of **detect.py** stud with the confidence threshold and IOU threshold by default, showing good detections but by contras showing a lot of FP and low precision as it is visible in the following images:
 
-![Failure1](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/failure1.png)
+![Failure1](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/failure1.jpg)
 
-![Failure2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/failure2.png)
+![Failure2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/failure2.jpg)
 
 
 
