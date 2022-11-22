@@ -16,6 +16,9 @@
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
+  <a href="#model_implementation">Model implementation</a> •
+  <a href="#solution_analysis">Solution analysis</a> •
+  <a href="#evaluation">Evaluation</a> •
   <a href="#credits">Credits</a> •
   <a href="#related">Related</a> •
   <a href="#license">License</a>
@@ -56,14 +59,15 @@ You can [download](https://github.com/kra0s22/Training_YOLOv7_on_Custom_Data/arc
 
 ## Model implementation
 
-Our final model is the following, expectin to fulfill our initial pourpose and detect the most cuantity of weapos and been reliable.
+Our final model is the following, expectin to fulfill our initial pourpose and detect the most cuantity of weapos expecting to be reliable.
 ```bash
 # run this cell to begin training1
 %cd /content/yolov7
 !python train.py --batch 20 --epochs 80 --data {dataset.location}/data.yaml --weights 'yolov7_training.pt'
 ```
 
-The hyperparameters are calculated automatically by YOLO7 through a block of calculations for a good all pourpose training and test algotith as it is seen in the following cell
+The hyperparameters are calculated automatically by YOLOV7 through a block of calculations for a good all pourpose training and test algorithm as it is seen in the following cell
+
 
 ```bash
 hyperparameters: lr0=0.01, lrf=0.1, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=0.05, cls=0.3, cls_pw=1.0, obj=0.7, obj_pw=1.0, iou_t=0.2, anchor_t=4.0, fl_gamma=0.0, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.2, scale=0.9, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, mosaic=1.0, mixup=0.15, copy_paste=0.0, paste_in=0.15, loss_ota=1
@@ -91,6 +95,7 @@ Starting withe the following 4 possible predictions:
 Precision measeures how accurate is your prediciton and uses the following definition:
 
 $$Precision = \frac{TP}{TP + FP}$$
+
 ![P curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/P_curve.png)
 
 ### Recall
@@ -132,7 +137,7 @@ $$F1 = \frac{precision \cdot{recall}}{precision + recall} \cdot {Beta}$$
 The above training and validation execution ends with the plots exposed in the following [link](https://wandb.ai/kra0s22/YOLOR/workspace?workspace=user-kra0s22).
 
 ## Evaluation
-As it is said in the following [discussions](https://github.com/ultralytics/yolov5/discussions/7906), yolo5 had 3 files that are designed for different purposes and utilize different dataloaders with different settings. Currently, in yolo7 the functionalities are dispossed differently, **train.py** dataloaders are designed for a speed-accuracy compromise, **test.py** contains the possibility of use the **train**, **val**, **test**, **speed** or **study** functionality (default object confidence threshold 0.001 and IOU threshold for NMS 0.65) and **detect.py** is designed for best real-world inference results (default object confidence threshold 0.25 and IOU threshold for NMS 0.45).
+As it is said in the following [discussions](https://github.com/ultralytics/yolov5/discussions/7906), YOLO5 had 3 files that are designed for different purposes and utilize different dataloaders with different settings. Currently, in YOLO7 the functionalities are dispossed differently, **train.py** dataloaders are designed for a speed-accuracy compromise, **test.py** contains the possibility of use the **train**, **val**, **test**, **speed** or **study** functionality (default object confidence threshold 0.001 and IOU threshold for NMS 0.65) and **detect.py** is designed for best real-world inference results (default object confidence threshold 0.25 and IOU threshold for NMS 0.45).
 
 For a real-world situation, we can evaluate the performance of our custom training using the provided **evalution** script and the best results model in **/runs/train/exp/weights/best.pt**. Similarly to the train.py function, detect.py has a lot of arguments accesible from --help or using the following [webpage](https://github.com/WongKinYiu/yolov7/blob/main/detect.py#L154).
 
@@ -192,6 +197,7 @@ This software uses the following open source packages:
 - [Markdown Viewer and Editor](https://thumbsdb.herokuapp.com/markdown/?)
 - [ReadMe - template](https://github.com/amitmerchant1990/electron-markdownify#readme)
 - [Explanation of Precision, Recall, IoU, mAP and F1](https://jonathan-hui.medium.com/map-mean-average-precision-for-object-detection-45c121a31173)
+- [Discussion of different functionalities of YOLO's .py](https://github.com/ultralytics/yolov5/discussions/7906)
 
 ## Related
 
