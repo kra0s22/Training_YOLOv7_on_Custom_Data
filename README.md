@@ -21,6 +21,10 @@
   <a href="#license">License</a>
 </p>
 
+## Introduction
+
+For this project we will explore the use of YOLO7 over Colab functionalities, developing a weapon detection model for secure and reliable purpose.
+
 ## Key Features
 
 * Instalation guide of YOLO and other dependeces in Colab.
@@ -51,7 +55,25 @@ $ cd Training_YOLOv7_on_Custom_Data
 You can [download](https://github.com/kra0s22/Training_YOLOv7_on_Custom_Data/archive/refs/heads/master.zip) the latest version of this repository.
 
 ## Model implementation
-Aqui va yolo, como se obtienen los hyperpar'ametros y otro svalroes de yolo para el entrenamiento.
+
+Our final model is the following, expectin to fulfill our initial pourpose and detect the most cuantity of weapos and been reliable.
+```bash
+# run this cell to begin training1
+%cd /content/yolov7
+!python train.py --batch 20 --epochs 80 --data {dataset.location}/data.yaml --weights 'yolov7_training.pt'
+```
+
+The hyperparameters are calculated automatically by YOLO7 through a block of calculations for a good all pourpose training and test algotith as it is seen in the following cell
+
+```bash
+hyperparameters: lr0=0.01, lrf=0.1, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=0.05, cls=0.3, cls_pw=1.0, obj=0.7, obj_pw=1.0, iou_t=0.2, anchor_t=4.0, fl_gamma=0.0, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.2, scale=0.9, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, mosaic=1.0, mixup=0.15, copy_paste=0.0, paste_in=0.15, loss_ota=1
+```
+With the above hyperparámets, YOLO generate the following model:
+```bash
+Model Summary: 415 layers, 37196556 parameters, 37196556 gradients, 105.1 GFLOPS
+```
+(the entire model construction is exposed during the training execution)
+
 
 ## Solution analysis
 In this sections we will explain the mAP (mean Average Precision) used for the development of this project.
@@ -113,6 +135,51 @@ The above training and validation execution ends with the plots exposed in the f
 As it is said in the following [discussions](https://github.com/ultralytics/yolov5/discussions/7906), yolo5 had 3 files that are designed for different purposes and utilize different dataloaders with different settings. Currently, in yolo7 the functionalities are dispossed differently, **train.py** dataloaders are designed for a speed-accuracy compromise, **test.py** contains the possibility of use the **train**, **val**, **test**, **speed** or **study** functionality (default object confidence threshold 0.001 and IOU threshold for NMS 0.65) and **detect.py** is designed for best real-world inference results (default object confidence threshold 0.25 and IOU threshold for NMS 0.45).
 
 For a real-world situation, we can evaluate the performance of our custom training using the provided **evalution** script and the best results model in **/runs/train/exp/weights/best.pt**. Similarly to the train.py function, detect.py has a lot of arguments accesible from --help or using the following [webpage](https://github.com/WongKinYiu/yolov7/blob/main/detect.py#L154).
+
+Our first execution of **detect.py** stud with the confidence threshold and IOU threshold by default, showing good detections but by contras showing a lot of FP and low precision as it is visible in the following images:
+
+![Failure1](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/failure1.png)
+
+![Failure2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/failure2.png)
+
+
+
+We could stop or detection and evalution process here but it would not cover or initial pourpose of consistent detection of weapons. Because of it, our next detection process had the following parameters:
+```bash
+# Run evaluation
+# necessary to change to this directory, otherwise the yolo7'2 detection, validation or test .py will not work.
+%cd /content/yolov7
+!python detect.py --conf-thres 0.6 --iou-thresh 0.7 --weights ./runs/train/best.pt --source {dataset.location}/valid/images --name r-w-images
+```
+
+![Failure3](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/failure3.jpg)
+
+![Failure4](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/failure4.jpg)
+
+
+![success1](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/success1.jpg)
+![success2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/success2.jpg)
+![success3](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/success3.jpg)
+![success4](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/success4.jpg)
+
+Due to its high restrictions this detections has a high FN rate but a confindent weapon detection, se the few weapons detected are reliable. In cosequence, we will aply a more intermedium images with les restrictions at it is seen in the following cell:
+
+```bash
+# Run evaluation
+# necessary to change to this directory, otherwise the yolo7'2 detection, validation or test .py will not work.
+%cd /content/yolov7
+!python detect.py --conf-thres 0.4 --iou-thresh 0.5 --weights ./runs/train/best.pt --source {dataset.location}/valid/images --name r-w-images
+```
+
+![rw2failure1](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/rw2failure1.jpg)
+
+![rw2failure2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/rw2failure2.jpg)
+
+
+![rw2success](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/rw2success.jpg)
+![success2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/success2.jpg)
+
+
 
 
 ## Credits
