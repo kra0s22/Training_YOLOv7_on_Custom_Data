@@ -20,8 +20,7 @@
   <a href="#solution_analysis">Solution analysis</a> •
   <a href="#evaluation">Evaluation</a> •
   <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
-  <a href="#license">License</a>
+  <a href="#related">Related</a>
 </p>
 
 ## Introduction
