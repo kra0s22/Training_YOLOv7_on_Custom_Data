@@ -124,7 +124,7 @@ mAP (mean average precision) is the average of AP. In some context, we compute t
 
 ![results](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/results.png)
 
-So the orange line is transformed into the green lines and the curve will decrease monotonically instead of the zigzag pattern. The calculated AP value will be less suspectable to small variations in the ranking. Mathematically, we replace the precision value for recall ȓ with the maximum precision for any recall ≥ ȓ.
+The above group of graphs shows the precision, recall and mAP for .50 and .95 of the model, confirming that the detection of the images is generally making good assumptions for a fair detection model (althoug its detection funtionalities is not so good, showed in the Evaluation section).
 
 
 ### F1
