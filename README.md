@@ -112,7 +112,8 @@ IoU measures the overlap between 2 boundaries. We use that to measure how much o
 ### AP
 AP (Average precision) is a popular metric in measuring the accuracy of object detectors like Faster R-CNN, SSD, etc. Average precision computes the average precision value for recall value over 0 to 1
 
-$$AP = $$\int_0^1 p(r) \,dx= \frac13$$$$
+$$AP = \int_0^1 p(r) \,dx= \frac13$$
+
 
 ![PR curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/PR_curve.png)
 
