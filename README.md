@@ -29,12 +29,11 @@
 3. [How to use](#how-to-use)
 4. [Download](#download)
 5. [Model implementation](#model-implementation)
-6. [Model implementation](#model-implementation)
-7. [Solution analysis](#solution-analysis)
-8. [Evaluation](#evaluation)
-9. [Credits](#credits)
-10. [Related](#related)
-11. [You may also like…](#you-may-also-like…)
+6. [Solution analysis](#solution-analysis)
+7. [Evaluation](#evaluation)
+8. [Credits](#credits)
+9. [Related](#related)
+10. [You may also like…](#you-may-also-like…)
 
 
 
