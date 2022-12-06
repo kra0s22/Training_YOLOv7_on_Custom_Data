@@ -23,11 +23,26 @@
   <a href="#related">Related</a>
 </p>
 
-## Introduction
+# Table of Contents
+1. [Introduction](#introduction)
+2. [Key Features](#key-features)
+3. [How to use](#how-to-use)
+4. [Download](#download)
+5. [Model implementation](#model-implementation)
+6. [Model implementation](#model-implementation)
+7. [Solution analysis](#solution-analysis)
+8. [Evaluation](#evaluation)
+9. [Credits](#credits)
+10. [Related](#related)
+11. [You may also like…](#you-may-also-like…)
+
+
+
+# Introduction
 
 For this project we will explore the use of YOLO7 over Colab functionalities, developing a weapon detection model for secure and reliable purpose.
 
-## Key Features
+# Key Features
 
 * Instalation guide of YOLO and other dependeces in Colab.
 * Example usage of RoboFlow and YOLOv7.
@@ -36,7 +51,7 @@ For this project we will explore the use of YOLO7 over Colab functionalities, de
 * Run a evaluation images on the model to test the results.
 * Exportation of the trained model to a local directory for future experiments.
 
-## How To Use
+# How To Use
 
 To clone and run the .ipynb, you'll need [Git](https://git-scm.com). From your command line:
 
@@ -52,11 +67,11 @@ $ cd Training_YOLOv7_on_Custom_Data
 > If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/).
 
 
-## Download
+# Download
 
 You can [download](https://github.com/kra0s22/Training_YOLOv7_on_Custom_Data/archive/refs/heads/master.zip) the latest version of this repository.
 
-## Model implementation
+# Model implementation
 
 Our final model is the following, expectin to fulfill our initial pourpose and detect the most cuantity of weapos expecting to be reliable.
 ```bash
@@ -78,12 +93,12 @@ Model Summary: 415 layers, 37196556 parameters, 37196556 gradients, 105.1 GFLOPS
 (the entire model construction is exposed during the training execution)
 
 
-## Solution analysis
+# Solution analysis
 In this sections we will explain the mAP (mean Average Precision) used for the development of this project.
 
 To begin with, AP is a popular metric for accuracy measuring in objects detections. This measurement gest values from 0 to 1 to rate the detected image prediction. To build this metris it is necesary to understand precision, recall and IoU.
 
-### Precision
+## Precision
 Starting withe the following 4 possible predictions:
 
 * TP = True positive
@@ -97,7 +112,7 @@ $$Precision = \frac{TP}{TP + FP}$$
 
 ![P curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/Graphs/P_curve.png)
 
-### Recall
+## Recall
 Recall measures how good you find all the positives and uses the following definition:
 
 $$Recall = \frac{TP}{TP + FN}$$
@@ -105,11 +120,11 @@ $$Recall = \frac{TP}{TP + FN}$$
 ![R curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/Graphs/R_curve.png)
 
 
-### IoU (Intersection over union)
+## IoU (Intersection over union)
 
 IoU measures the overlap between 2 boundaries. We use that to measure how much our predicted boundary overlaps with the ground truth (the real object boundary). In some datasets, we predefine an IoU threshold (mainly 0.5) in classifying whether the prediction is a true positive or a false positive.
 
-### AP
+## AP
 AP (Average precision) is a popular metric in measuring the accuracy of object detectors like Faster R-CNN, SSD, etc. Average precision computes the average precision value for recall value over 0 to 1
 
 $$AP = \int_0^1 p(r) dx$$
@@ -117,7 +132,7 @@ $$AP = \int_0^1 p(r) dx$$
 
 ![PR curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/Graphs/PR_curve.png)
 
-### COCO mAP
+## COCO mAP
 
 Latest research papers tend to give results for the COCO dataset only. In COCO mAP, a 101-point interpolated AP definition is used in the calculation. For COCO, AP is the average over multiple IoU (the minimum IoU to consider a positive match). AP@[.5:.95] corresponds to the average AP for IoU from 0.5 to 0.95 with a step size of 0.05. For the COCO competition, AP is the average over 10 IoU levels on 80 categories (AP@[.50:.05:.95]: start from 0.5 to 0.95 with a step size of 0.05).
 
@@ -128,7 +143,7 @@ mAP (mean average precision) is the average of AP. In some context, we compute t
 The above group of graphs shows the precision, recall and mAP for .50 and .95 of the model, confirming that the detection of the images is generally making good assumptions for a fair detection model (althoug its detection funtionalities is not so good, showed in the Evaluation section).
 
 
-### F1
+## F1
 F1 combines precision and recall into one metric by calculating the harmonic mean between those two. It is actually a special case of the more general function F beta:
 
 $$F1 = \frac{precision \cdot{recall}}{precision + recall} \cdot {Beta}$$
@@ -137,7 +152,7 @@ $$F1 = \frac{precision \cdot{recall}}{precision + recall} \cdot {Beta}$$
 
 The above training and validation execution ends with the plots exposed in the following [link](https://wandb.ai/kra0s22/YOLOR/workspace?workspace=user-kra0s22).
 
-## Evaluation
+# Evaluation
 As it is said in the following [discussions](https://github.com/ultralytics/yolov5/discussions/7906), YOLO5 had 3 files that are designed for different purposes and utilize different dataloaders with different settings. Currently, in YOLO7 the functionalities are dispossed differently, **train.py** dataloaders are designed for a speed-accuracy compromise, **test.py** contains the possibility of use the **train**, **val**, **test**, **speed** or **study** functionality (default object confidence threshold 0.001 and IOU threshold for NMS 0.65) and **detect.py** is designed for best real-world inference results (default object confidence threshold 0.25 and IOU threshold for NMS 0.45).
 
 For a real-world situation, we can evaluate the performance of our custom training using the provided **evalution** script and the best results model in **/runs/train/exp/weights/best.pt**. Similarly to the train.py function, detect.py has a lot of arguments accesible from --help or using the following [webpage](https://github.com/WongKinYiu/yolov7/blob/main/detect.py#L154).
@@ -183,7 +198,7 @@ Due to its high restrictions this detections has a high FN rate but a confindent
 
 
 
-## Credits
+# Credits
 
 This software uses the following open source packages:
 
@@ -195,12 +210,12 @@ This software uses the following open source packages:
 - [Explanation of Precision, Recall, IoU, mAP and F1](https://jonathan-hui.medium.com/map-mean-average-precision-for-object-detection-45c121a31173)
 - [Discussion of different functionalities of YOLO's .py](https://github.com/ultralytics/yolov5/discussions/7906)
 
-## Related
+# Related
 
 - [How to use git on colab](https://medium.com/analytics-vidhya/how-to-use-google-colab-with-github-via-google-drive-68efb23a42d)
 - [RoboFlow blogspot](https://blog.roboflow.com/yolov7-custom-dataset-training-tutorial/) - Blog How to Train YOLOv7 on a Custom Dataset from
 
-## You may also like...
+# You may also like...
 - [Tweets and Users collector using MongoDB and V2 API](https://github.com/kra0s22/TFG-Tweets_and_Users_recollector_using_V2_API)
 - [Project developed on Unity from the AI for videogames subject [ESP]](https://github.com/kra0s22/PROYECTO-IADEVIDEOJUEGOS-Simon-Alberto-Jose)
 
