@@ -12,17 +12,6 @@
 <a href="https://colab.research.google.com/drive/1wt8lQXGpkrlhlG4yOm__AypLoMzgq_td?usp=share_link" rel="nofollow"><img src="https://camo.githubusercontent.com/84f0493939e0c4de4e6dbe113251b4bfb5353e57134ffd9fcab6b8714514d4d1/68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6173736574732f636f6c61622d62616467652e737667" alt="Open In Colab" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg" style="max-width: 100%;"></a>
 </p>
 
-<p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#download">Download</a> •
-  <a href="#model-implementation">Model implementation</a> •
-  <a href="#solution-analysis">Solution analysis</a> •
-  <a href="#evaluation">Evaluation</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#related">Related</a>
-</p>
-
 # Table of Contents
 1. [Introduction](#introduction)
 2. [Key Features](#key-features)
@@ -217,6 +206,10 @@ This software uses the following open source packages:
 # You may also like
 - [Tweets and Users collector using MongoDB and V2 API](https://github.com/kra0s22/TFG-Tweets_and_Users_recollector_using_V2_API)
 - [Project developed on Unity from the AI for videogames subject [ESP]](https://github.com/kra0s22/PROYECTO-IADEVIDEOJUEGOS-Simon-Alberto-Jose)
+
+- [Project using fuzzy logic (provisional)](https://github.com/kra0s22/PROYECTO-IADEVIDEOJUEGOS-Simon-Alberto-Jose)
+
+- [Project using  Rule‑Based programming (provisional)](https://github.com/kra0s22/PROYECTO-IADEVIDEOJUEGOS-Simon-Alberto-Jose)
 
 
 
