@@ -95,14 +95,14 @@ Precision measeures how accurate is your prediciton and uses the following defin
 
 $$Precision = \frac{TP}{TP + FP}$$
 
-![P curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/P_curve.png)
+![P curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/Graphs/P_curve.png)
 
 ### Recall
 Recall measures how good you find all the positives and uses the following definition:
 
 $$Recall = \frac{TP}{TP + FN}$$
 
-![R curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/R_curve.png)
+![R curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/Graphs/R_curve.png)
 
 
 ### IoU (Intersection over union)
@@ -115,7 +115,7 @@ AP (Average precision) is a popular metric in measuring the accuracy of object d
 $$AP = \int_0^1 p(r) dx$$
 
 
-![PR curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/PR_curve.png)
+![PR curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/Graphs/PR_curve.png)
 
 ### COCO mAP
 
@@ -123,7 +123,7 @@ Latest research papers tend to give results for the COCO dataset only. In COCO m
 
 mAP (mean average precision) is the average of AP. In some context, we compute the AP for each class and average them. But in some context, they mean the same thing. For example, under the COCO context, there is no difference between AP and mAP. In this case, we will use the COCO's definition to measure the accuracy of the trained model.
 
-![results](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/results.png)
+![results](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/Graphs/results.png)
 
 The above group of graphs shows the precision, recall and mAP for .50 and .95 of the model, confirming that the detection of the images is generally making good assumptions for a fair detection model (althoug its detection funtionalities is not so good, showed in the Evaluation section).
 
@@ -133,7 +133,7 @@ F1 combines precision and recall into one metric by calculating the harmonic mea
 
 $$F1 = \frac{precision \cdot{recall}}{precision + recall} \cdot {Beta}$$
 
-![F1 curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/export/runs/train/exp2/F1_curve.png)
+![F1 curve](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/Graphs/F1_curve.png)
 
 The above training and validation execution ends with the plots exposed in the following [link](https://wandb.ai/kra0s22/YOLOR/workspace?workspace=user-kra0s22).
 
@@ -144,9 +144,11 @@ For a real-world situation, we can evaluate the performance of our custom traini
 
 Our first execution of **detect.py** stud with the confidence threshold and IOU threshold by default, showing good detections but by contras showing a lot of FP and low precision as it is visible in the following images:
 
-![Failure1](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/failure1.jpg)
+![Failure1](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/basic.jpg)
 
-![Failure2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/failure2.jpg)
+![Failure2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/basic2.jpg)
+
+![Failure2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/basic3.jpg)
 
 
 
@@ -158,15 +160,10 @@ We could stop or detection and evalution process here but it would not cover or 
 !python detect.py --conf-thres 0.6 --iou-thresh 0.7 --weights ./runs/train/best.pt --source {dataset.location}/valid/images --name r-w-images
 ```
 
-![Failure3](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/failure3.jpg)
+![Failure3](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/opt1.jpg)
 
-![Failure4](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/failure4.jpg)
+![Failure4](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/opt12.jpg)
 
-
-![success1](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/success1.jpg)
-![success2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/success2.jpg)
-![success3](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/success3.jpg)
-![success4](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/success4.jpg)
 
 Due to its high restrictions this detections has a high FN rate but a confindent weapon detection, se the few weapons detected are reliable. In cosequence, we will aply a more intermedium images with les restrictions at it is seen in the following cell:
 
@@ -177,13 +174,11 @@ Due to its high restrictions this detections has a high FN rate but a confindent
 !python detect.py --conf-thres 0.4 --iou-thresh 0.5 --weights ./runs/train/best.pt --source {dataset.location}/valid/images --name r-w-images
 ```
 
-![rw2failure1](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/rw2failure1.jpg)
-
-![rw2failure2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/rw2failure2.jpg)
+![rw2failure1](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/opt2.jpg)
 
 
-![rw2success](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/rw2success.jpg)
-![success2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/success2.jpg)
+![rw2success](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/opt22.jpg)
+![success2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/opt23.jpg)
 
 
 
