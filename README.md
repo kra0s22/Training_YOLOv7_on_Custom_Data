@@ -22,7 +22,8 @@
 7. [Evaluation](#evaluation)
 8. [Credits](#credits)
 9. [Related](#related)
-10. [You may also like](#you-may-also-like)
+10. [Conclusions](#conclusions)
+11. [You may also like](#you-may-also-like)
 
 
 
@@ -51,17 +52,14 @@ $ git clone https://github.com/kra0s22/Training_YOLOv7_on_Custom_Data.git
 $ cd Training_YOLOv7_on_Custom_Data
 ```
 
-> **Note**
-> If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/).
-
 
 # Download
 
-You can [download](https://github.com/kra0s22/Training_YOLOv7_on_Custom_Data/archive/refs/heads/master.zip) the latest version of this repository.
+You can [download](https://github.com/kra0s22/Training_YOLOv7_on_Custom_Data/archive/refs/heads/master.zip) the latest version from this repository.
 
 # Model implementation
 
-Our final model is the following, expectin to fulfill our initial pourpose and detect the most cuantity of weapos expecting to be reliable.
+Our final model is the following, expectin to fulfill our initial pourpose and detect the most quantity of weapos, expecting to be reliable.
 ```bash
 # run this cell to begin training1
 %cd /content/yolov7
@@ -87,12 +85,12 @@ In this sections we will explain the mAP (mean Average Precision) used for the d
 To begin with, AP is a popular metric for accuracy measuring in objects detections. This measurement gest values from 0 to 1 to rate the detected image prediction. To build this metris it is necesary to understand precision, recall and IoU.
 
 ## Precision
-Starting withe the following 4 possible predictions:
+To begin with, there are 4 possible predictions:
 
-* TP = True positive
-* TN = True negative
-* FP = False positive
-* FN = False negative
+* TP = True positive (predict positive the solution)
+* TN = True negative (predict negative the solution)
+* FP = False positive (predict a negative solution as positive)
+* FN = False negative (predict a positive solution as negative)
 
 Precision measeures how accurate is your prediciton and uses the following definition:
 
@@ -113,7 +111,7 @@ $$Recall = \frac{TP}{TP + FN}$$
 IoU measures the overlap between 2 boundaries. We use that to measure how much our predicted boundary overlaps with the ground truth (the real object boundary). In some datasets, we predefine an IoU threshold (mainly 0.5) in classifying whether the prediction is a true positive or a false positive.
 
 ## AP
-AP (Average precision) is a popular metric in measuring the accuracy of object detectors like Faster R-CNN, SSD, etc. Average precision computes the average precision value for recall value over 0 to 1
+AP (Average precision) is a popular metric in measuring the accuracy of object detectors like Faster R-CNN, SSD, etc. Average precision computes the average precision value for recall value over 0 to 1.
 
 $$AP = \int_0^1 p(r) dx$$
 
@@ -143,10 +141,10 @@ The above training and validation execution ends with the plots exposed in the f
 # Evaluation
 As it is said in the following [discussions](https://github.com/ultralytics/yolov5/discussions/7906), YOLO5 had 3 files that are designed for different purposes and utilize different dataloaders with different settings. Currently, in YOLO7 the functionalities are dispossed differently, **train.py** dataloaders are designed for a speed-accuracy compromise, **test.py** contains the possibility of use the **train**, **val**, **test**, **speed** or **study** functionality (default object confidence threshold 0.001 and IOU threshold for NMS 0.65) and **detect.py** is designed for best real-world inference results (default object confidence threshold 0.25 and IOU threshold for NMS 0.45).
 
-For a real-world situation, we can evaluate the performance of our custom training using the provided **evalution** script and the best results model in **/runs/train/exp/weights/best.pt**. Similarly to the train.py function, detect.py has a lot of arguments accesible from --help or using the following [webpage](https://github.com/WongKinYiu/yolov7/blob/main/detect.py#L154).
+For a real-world situation, we can evaluate the performance of our custom training using the provided **detect** script and the best results model in **/runs/train/exp/weights/best.pt**. Similarly to the train.py function, detect.py has a lot of arguments accesible from --help or using the following [webpage](https://github.com/WongKinYiu/yolov7/blob/main/detect.py#L154).
 
 ## First execution
-Our first execution of **detect.py** stud with the confidence threshold and IOU threshold by default, showing good detections but by contras showing a lot of FP and low precision as it is visible in the following images:
+Our first execution of **detect.py** started with the confidence threshold and IOU threshold by default, showing good detections generally, but by contras, showing a lot of False Positives and low precision, as it is visible in the following images:
 
 ![Failure1](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/basic.jpg)
 
@@ -156,7 +154,8 @@ Our first execution of **detect.py** stud with the confidence threshold and IOU 
 
 
 ## First test of real world parameters
-We could stop or detection and evalution process here but it would not cover or initial pourpose of consistent detection of weapons. Because of it, our next detection process had the following parameters:
+We could stop or detection and evalution process here but it would not cover or initial pourpose of a consistent weapon detector. Because of it, our next detection process had the following parameters:
+
 ```bash
 # Run evaluation
 # necessary to change to this directory, otherwise the yolo7'2 detection, validation or test .py will not work.
@@ -171,7 +170,7 @@ We could stop or detection and evalution process here but it would not cover or 
 ![Failure3](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/opt13.jpg)
 
 ## Second test of real world parameters
-Due to its high restrictions this detections has a high FN rate but a confindent weapon detection, se the few weapons detected are reliable. In cosequence, we will aply a more intermedium images with les restrictions at it is seen in the following cell:
+Due to its high restrictions, these detections had a high False Negative rate, although a confindent weapon detection, ending with a low quantity of weapons detected reliablely. In consequence, we will apply a more intermedium images detector with less restrictions at it is seen in the following cell:
 
 ```bash
 # Run evaluation
@@ -187,6 +186,8 @@ Due to its high restrictions this detections has a high FN rate but a confindent
 ![success2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/opt23.jpg)
 
 
+# Conclusions
+To sum it up, the entire functionalities applied for the case of use are pleanity accesible for self research, letting you use high end computers for computational executions, despiste of the phisical limitations that google colab's free version includes. In addition, RoboFlow disposes its own machine learning functionalities, letting you train your own models directly on their web page. Lastly, the data set can be the most difficult point of the development, containing a collection of images too different to use in an actual daily implementation of a neural network. For a real-world development, the data set would be a more specific collection of images designed for a specific type of detection and probably the image detection wuold be distributed between multiple cameras.
 
 
 # Credits
