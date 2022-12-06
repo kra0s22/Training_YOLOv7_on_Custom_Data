@@ -33,7 +33,7 @@
 7. [Evaluation](#evaluation)
 8. [Credits](#credits)
 9. [Related](#related)
-10. [You may also like…](#you-may-also-like…)
+10. [You may also like](#you-may-also-like)
 
 
 
@@ -214,7 +214,7 @@ This software uses the following open source packages:
 - [How to use git on colab](https://medium.com/analytics-vidhya/how-to-use-google-colab-with-github-via-google-drive-68efb23a42d)
 - [RoboFlow blogspot](https://blog.roboflow.com/yolov7-custom-dataset-training-tutorial/) - Blog How to Train YOLOv7 on a Custom Dataset from
 
-# You may also like...
+# You may also like
 - [Tweets and Users collector using MongoDB and V2 API](https://github.com/kra0s22/TFG-Tweets_and_Users_recollector_using_V2_API)
 - [Project developed on Unity from the AI for videogames subject [ESP]](https://github.com/kra0s22/PROYECTO-IADEVIDEOJUEGOS-Simon-Alberto-Jose)
 
