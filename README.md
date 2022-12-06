@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/kra0s22"><img src="https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/yologo_2.png" alt="Markdownify" width="200"></a>
+  <a href="https://pjreddie.com/darknet/yolo/"><img src="https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/yologo_2.png" alt="Markdownify" width="200"></a>
   <br>
   Testing YOLOv7 on Google Colab
   <br>
