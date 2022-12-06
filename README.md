@@ -145,6 +145,7 @@ As it is said in the following [discussions](https://github.com/ultralytics/yolo
 
 For a real-world situation, we can evaluate the performance of our custom training using the provided **evalution** script and the best results model in **/runs/train/exp/weights/best.pt**. Similarly to the train.py function, detect.py has a lot of arguments accesible from --help or using the following [webpage](https://github.com/WongKinYiu/yolov7/blob/main/detect.py#L154).
 
+## First execution
 Our first execution of **detect.py** stud with the confidence threshold and IOU threshold by default, showing good detections but by contras showing a lot of FP and low precision as it is visible in the following images:
 
 ![Failure1](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/basic.jpg)
@@ -154,7 +155,7 @@ Our first execution of **detect.py** stud with the confidence threshold and IOU 
 ![Failure2](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/basic3.jpg)
 
 
-
+## First test of real world parameters
 We could stop or detection and evalution process here but it would not cover or initial pourpose of consistent detection of weapons. Because of it, our next detection process had the following parameters:
 ```bash
 # Run evaluation
@@ -167,7 +168,9 @@ We could stop or detection and evalution process here but it would not cover or 
 
 ![Failure4](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/opt12.jpg)
 
+![Failure3](https://raw.githubusercontent.com/kra0s22/Training_YOLOv7_on_Custom_Data/master/Images/opt13.jpg)
 
+## Second test of real world parameters
 Due to its high restrictions this detections has a high FN rate but a confindent weapon detection, se the few weapons detected are reliable. In cosequence, we will aply a more intermedium images with les restrictions at it is seen in the following cell:
 
 ```bash
