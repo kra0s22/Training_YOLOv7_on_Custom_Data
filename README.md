@@ -16,8 +16,8 @@
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#download">Download</a> •
-  <a href="#model_implementation">Model implementation</a> •
-  <a href="#solution_analysis">Solution analysis</a> •
+  <a href="#model-implementation">Model implementation</a> •
+  <a href="#solution-analysis">Solution analysis</a> •
   <a href="#evaluation">Evaluation</a> •
   <a href="#credits">Credits</a> •
   <a href="#related">Related</a>
